@@ -23,12 +23,12 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:theme="@style/ThemeOverlayDarkActionBar"/>
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerInside"
-            android:clickable="true"
-            android:src="@drawable/fab_test2"/>
+        <!--<ImageView-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="centerInside"-->
+            <!--android:clickable="true"-->
+            <!--android:src="@drawable/fab_test2"/>-->
         <FrameLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
