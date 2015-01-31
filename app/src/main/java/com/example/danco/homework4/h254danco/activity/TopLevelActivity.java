@@ -149,7 +149,8 @@ public class TopLevelActivity extends ActionBarActivity
     private void setupDrawerList() {
         ListView drawerList = (ListView) drawerContent.findViewById(R.id.drawerList);
 
-        RelativeLayout header = (RelativeLayout) LayoutInflater.from(this).inflate(R.layout.drawer_header, drawerList, false);
+        RelativeLayout header = (RelativeLayout)
+                LayoutInflater.from(this).inflate(R.layout.drawer_header, drawerList, false);
         drawerList.addHeaderView(header, null, false);
 
         View footer = LayoutInflater.from(this).inflate(R.layout.drawer_footer, drawerList, false);
@@ -212,11 +213,6 @@ public class TopLevelActivity extends ActionBarActivity
                 break;
             case 1:
                 fragment = GridViewFragment.newInstance();
-                break;
-            case 2:
-                //fragment = CombinedFragment.newInstance();
-                // startActivity(...)
-                // return;
                 break;
         }
         getSupportActionBar().setTitle(titleArray[adjustedPosition]);

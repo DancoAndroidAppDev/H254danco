@@ -6,8 +6,8 @@
     </string-array>
 
     <array name="drawerImages">
-        <item>@drawable/ic_action_contacts</item>
-        <item>@drawable/ic_action_grid</item>
+        <item>@drawable/ic_action_contacts_state</item>
+        <item>@drawable/ic_action_grid_state</item>
     </array>
 
     <string-array name="listItems">
