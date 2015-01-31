@@ -3,10 +3,12 @@
     <string-array name="drawerItems">
         <item>@string/contacts</item>
         <item>@string/gridView</item>
+        <item>@string/floatingActionButton</item>
     </string-array>
 
     <array name="drawerImages">
         <item>@drawable/ic_action_contacts_state</item>
+        <item>@drawable/ic_action_grid_state</item>
         <item>@drawable/ic_action_grid_state</item>
     </array>
 

@@ -41,6 +41,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.danco.homework4.h254danco.activity.TopLevelActivity" />
         </activity>
+        <activity
+            android:name=".activity.FloatingActionActivity"
+            android:label="@string/title_activity_floating_action" >
+        </activity>
     </application>
 
 </manifest>

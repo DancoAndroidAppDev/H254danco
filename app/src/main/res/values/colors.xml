@@ -3,6 +3,7 @@
     <color name="indigo_500">#3F51B5</color>
     <color name="indigo_700">#303F9F</color>
     <color name="red_A400">#FF1744</color>
+    <color name="red_A700">#E00032</color>
     <color name="grey_300">#E0E0E0</color>
     <color name="statusOverlay">#33000000</color>
 
