@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.danco.homework4.h254danco.R;
 import com.example.danco.homework4.h254danco.adapter.DrawerAdapter;
 import com.example.danco.homework4.h254danco.fragment.ContactsFragment;
+import com.example.danco.homework4.h254danco.fragment.FloatingActionFragment;
 import com.example.danco.homework4.h254danco.fragment.GridViewFragment;
 
 
@@ -213,6 +214,9 @@ public class TopLevelActivity extends ActionBarActivity
                 break;
             case 1:
                 fragment = GridViewFragment.newInstance();
+                break;
+            case 2:
+                fragment = FloatingActionFragment.newInstance();
                 break;
         }
         getSupportActionBar().setTitle(titleArray[adjustedPosition]);
