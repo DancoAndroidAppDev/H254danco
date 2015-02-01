@@ -97,9 +97,9 @@ public class CustomComponent extends View {
         super.onDraw(canvas);
 
         paint.setColor(leftColor);
-        canvas.drawArc(oval, 90, 180, true, paint);
+        canvas.drawArc(oval, 90, 180, false, paint);
         paint.setColor(rightColor);
-        canvas.drawArc(oval, 270, 180, true, paint);
+        canvas.drawArc(oval, 270, 180, false, paint);
     }
 
     /**
