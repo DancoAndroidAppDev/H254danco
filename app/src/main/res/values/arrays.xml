@@ -9,7 +9,7 @@
     <array name="drawerImages">
         <item>@drawable/ic_action_contacts_state</item>
         <item>@drawable/ic_action_grid_state</item>
-        <item>@drawable/ic_action_grid_state</item>
+        <item>@drawable/ic_action_action_account_circle_state</item>
     </array>
 
     <string-array name="listItems">

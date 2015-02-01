@@ -7,7 +7,7 @@
 
 
     <com.example.danco.homework4.h254danco.view.CustomComponent
-        android:layout_width="56dp"
+        android:layout_width="100dp"
         android:layout_height="56dp"
         android:background="#33000000"
         android:layout_gravity="top|start"
@@ -18,7 +18,7 @@
         />
 
     <com.example.danco.homework4.h254danco.view.CustomComponent
-        android:layout_width="56dp"
+        android:layout_width="100dp"
         android:layout_height="56dp"
         android:background="#33000000"
         android:layout_gravity="top|end"
