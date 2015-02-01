@@ -35,6 +35,7 @@
         android:layout_gravity="center_vertical|center_horizontal"
         app:leftColor="@color/red_A700"
         app:rightColor="@color/red_A400"
+        android:scaleType="centerInside"
         android:padding="8dp"
         app:paintSize="4dp"
         />

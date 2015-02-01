@@ -20,6 +20,7 @@ public class CustomComponent extends ImageView {
     private int leftColor;
     private int rightColor;
     private int paintSize;
+    private String scaleType;
 
     RectF oval = new RectF();
 
@@ -63,6 +64,8 @@ public class CustomComponent extends ImageView {
                 R.styleable.CustomAttributes_paintSize,
                 paintSize);
 
+        scaleType = a.getString(R.styleable.CustomAttributes_android_scaleType);
+
         a.recycle();
 
         // Set up a default TextPaint object
@@ -89,10 +92,15 @@ public class CustomComponent extends ImageView {
         int scale = Math.min(w, h);
         int horizontalOffset = 0;
         int verticalOffset = 0;
-        if (w > h) {
-            horizontalOffset = (w - h) / 2;
-        } else if (h > w) {
-            verticalOffset = (h - w) / 2;
+
+        // handling the scaleType this way is ugly, but I couldn't get
+        //  ScaleType.valueOf(scaleType) to work...
+        if (scaleType != null && scaleType.equals("7")) {
+            if (w > h) {
+                horizontalOffset = (w - h) / 2;
+            } else if (h > w) {
+                verticalOffset = (h - w) / 2;
+            }
         }
         startHorizontal = ViewCompat.getPaddingStart(this) + horizontalOffset;
         endHorizontal = scale - ViewCompat.getPaddingEnd(this) + horizontalOffset;
@@ -111,12 +119,8 @@ public class CustomComponent extends ImageView {
 
         paint.setColor(leftColor);
         canvas.drawArc(oval, 90, 180, false, paint);
-//        canvas.drawArc(startHorizontal + paintSize/2, topVertical + paintSize/2,
-//                endHorizontal - paintSize/2, bottomVertical - paintSize/2, 90, 180, true, paint);
         paint.setColor(rightColor);
         canvas.drawArc(oval, 270, 180, false, paint);
-//        canvas.drawArc(startHorizontal + paintSize/2, topVertical + paintSize/2,
-//                endHorizontal - paintSize/2, bottomVertical - paintSize/2, 270, 180, true, paint);
     }
 
     /**
