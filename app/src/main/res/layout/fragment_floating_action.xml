@@ -28,6 +28,17 @@
         app:paintSize="4dp"
         />
 
+    <com.example.danco.homework4.h254danco.view.CustomComponent
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:background="#33000000"
+        android:layout_gravity="center_vertical|center_horizontal"
+        app:leftColor="@color/red_A700"
+        app:rightColor="@color/red_A400"
+        android:padding="8dp"
+        app:paintSize="4dp"
+        />
+
     <ImageView
         android:id="@+id/floatingActionImageView"
         android:layout_width="56dp"

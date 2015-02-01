@@ -8,13 +8,14 @@ import android.graphics.RectF;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.danco.homework4.h254danco.R;
 
 /**
  * Created by costd035 on 1/31/15.
  */
-public class CustomComponent extends View {
+public class CustomComponent extends ImageView {
 
     private int leftColor;
     private int rightColor;
@@ -81,15 +82,27 @@ public class CustomComponent extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+
         centerHeight = h / 2;
         centerWidth = w / 2;
-        startHorizontal = ViewCompat.getPaddingStart(this);
-        endHorizontal = w - ViewCompat.getPaddingEnd(this);
-        topVertical = getPaddingTop();
-        bottomVertical = h - getPaddingBottom();
+
+        int scale = Math.min(w, h);
+        int horizontalOffset = 0;
+        int verticalOffset = 0;
+        if (w > h) {
+            horizontalOffset = (w - h) / 2;
+        } else if (h > w) {
+            verticalOffset = (h - w) / 2;
+        }
+        startHorizontal = ViewCompat.getPaddingStart(this) + horizontalOffset;
+        endHorizontal = scale - ViewCompat.getPaddingEnd(this) + horizontalOffset;
+        topVertical = getPaddingTop() + verticalOffset;
+        bottomVertical = scale - getPaddingBottom() + verticalOffset;
 
         oval = new RectF(startHorizontal + paintSize/2, topVertical + paintSize/2,
                 endHorizontal - paintSize/2, bottomVertical - paintSize/2);
+
+        super.setScaleType(ScaleType.CENTER_INSIDE);
     }
 
     @Override
@@ -98,8 +111,12 @@ public class CustomComponent extends View {
 
         paint.setColor(leftColor);
         canvas.drawArc(oval, 90, 180, false, paint);
+//        canvas.drawArc(startHorizontal + paintSize/2, topVertical + paintSize/2,
+//                endHorizontal - paintSize/2, bottomVertical - paintSize/2, 90, 180, true, paint);
         paint.setColor(rightColor);
         canvas.drawArc(oval, 270, 180, false, paint);
+//        canvas.drawArc(startHorizontal + paintSize/2, topVertical + paintSize/2,
+//                endHorizontal - paintSize/2, bottomVertical - paintSize/2, 270, 180, true, paint);
     }
 
     /**
