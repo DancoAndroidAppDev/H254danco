@@ -20,6 +20,8 @@ public class CustomComponent extends ImageView {
     private int leftColor;
     private int rightColor;
     private int paintSize;
+    private int rightColorPercentage;
+    private int arcSweepSize;
     private String scaleType;
 
     RectF oval = new RectF();
@@ -64,6 +66,8 @@ public class CustomComponent extends ImageView {
                 R.styleable.CustomAttributes_paintSize,
                 paintSize);
 
+        rightColorPercentage = a.getInt(R.styleable.CustomAttributes_rightColorPercentage, 50);
+        arcSweepSize = (rightColorPercentage / 100) * 360;
         scaleType = a.getString(R.styleable.CustomAttributes_android_scaleType);
 
         a.recycle();
@@ -117,10 +121,10 @@ public class CustomComponent extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        paint.setColor(leftColor);
-        canvas.drawArc(oval, 90, 180, false, paint);
         paint.setColor(rightColor);
         canvas.drawArc(oval, 270, 180, false, paint);
+        paint.setColor(leftColor);
+        canvas.drawArc(oval, 90, 180, false, paint);
     }
 
     /**
