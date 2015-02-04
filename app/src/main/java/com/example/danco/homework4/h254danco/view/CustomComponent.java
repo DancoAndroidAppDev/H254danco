@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -16,11 +17,12 @@ import com.example.danco.homework4.h254danco.R;
  * Created by costd035 on 1/31/15.
  */
 public class CustomComponent extends ImageView {
+    private static final String TAG = CustomComponent.class.getSimpleName();
 
     private int leftColor;
     private int rightColor;
     private int paintSize;
-    private int rightColorPercentage;
+    private int rightColorPercentage = 50;
     private int arcSweepSize;
     private String scaleType;
 
@@ -67,8 +69,11 @@ public class CustomComponent extends ImageView {
                 paintSize);
 
         rightColorPercentage = a.getInt(R.styleable.CustomAttributes_rightColorPercentage, 50);
-        arcSweepSize = (rightColorPercentage / 100) * 360;
+        arcSweepSize = convertToDegrees(rightColorPercentage);
+
         scaleType = a.getString(R.styleable.CustomAttributes_android_scaleType);
+
+        Log.v(TAG, "arcSweepDegrees=" + arcSweepSize);
 
         a.recycle();
 
@@ -81,6 +86,12 @@ public class CustomComponent extends ImageView {
         // Update TextPaint and text measurements from attributes
         invalidatePaintAndMeasurements();
     }
+
+
+    private int convertToDegrees(double arcSweepSize) {
+        return (int) (360 * (arcSweepSize / 100));
+    }
+
 
     private void invalidatePaintAndMeasurements() {
         paint.setStrokeWidth(paintSize);
@@ -121,10 +132,13 @@ public class CustomComponent extends ImageView {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+        canvas.save();
+        canvas.rotate(-90, centerWidth, centerHeight);
         paint.setColor(rightColor);
-        canvas.drawArc(oval, 270, 180, false, paint);
+        canvas.drawArc(oval, 0, arcSweepSize, false, paint);
         paint.setColor(leftColor);
-        canvas.drawArc(oval, 90, 180, false, paint);
+        canvas.drawArc(oval, arcSweepSize, 360 - arcSweepSize, false, paint);
+        canvas.restore();
     }
 
     /**
